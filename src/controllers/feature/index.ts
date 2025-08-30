@@ -39,7 +39,14 @@ export default {
     try {
       const id = req.params.id;
       await Service.deleteComparisonHistory(id);
-      return res.redirect("/features/compare/history");
+      
+      const history = await Service.getComparisonHistory();
+      const formattedHistory = history.map((item) => ({
+        ...item,
+        formattedDate: dayjs(item.created_at).format("DD/MM/YYYY HH:mm"),
+      }));
+      
+      res.render("feature/compare/history", { history: formattedHistory });
     } catch (err) {
       res.render("feature/compare/history", {
         error: err.message,
