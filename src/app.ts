@@ -2,8 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import expressLayouts from "express-ejs-layouts";
-import { router } from "@routes/index";
-import { authGuard } from "@middleware/auth";
+// import { router } from "@routes/index";
+// import { authGuard } from "@middleware/auth";
 import path from "path";
 
 dotenv.config();
@@ -22,13 +22,11 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.set("view engine", "ejs");
 app.set("views", "./src/views");
-app.set('views', path.join(__dirname, '../views'));
-
 
 app.use(expressLayouts);
 app.set("layout", "layouts/main"); 
 
-app.use(authGuard);
+// app.use(authGuard);
 // app.use("/", router);
 app.get("/", (req, res) => res.send("Hello from Express on Vercel!"));
 
