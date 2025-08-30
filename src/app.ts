@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import expressLayouts from "express-ejs-layouts";
 import path from "path";
-import { router } from "./routes/index";
-import { authGuard } from "./middleware/auth";
+// import { router } from "./routes/index";
+// import { authGuard } from "./middleware/auth";
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ quiet: true });
@@ -28,8 +28,7 @@ app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
-
-app.use(authGuard);
-app.use("/", router);
+// app.use(authGuard);
+// app.use("/", router);
 
 export default app;
