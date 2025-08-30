@@ -7,7 +7,7 @@
     "module": "CommonJS",
     "sourceRoot": "s",
     "baseUrl": "./",
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -30,5 +30,5 @@
     "node_modules",
     "dist"
   ],
-  "include": ["src"]
+  "include": ["src", "api"]
 }

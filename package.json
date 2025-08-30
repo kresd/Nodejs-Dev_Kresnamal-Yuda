@@ -1,11 +1,12 @@
 {
   "name": "nodejs-dev_kresnamal-yuda",
   "version": "1.0.0",
-  "main": "dist/app.js",
+  "main": "dist/src/app.js",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/app.ts",
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/src/app.js",
+    "vercel-build": "tsc"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.56.0",
@@ -20,7 +21,8 @@
     "express-ejs-layouts": "^2.5.1",
     "glob": "^11.0.3",
     "jsonwebtoken": "^9.0.2",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.6",
