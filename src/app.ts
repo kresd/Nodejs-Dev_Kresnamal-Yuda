@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser";
 import expressLayouts from "express-ejs-layouts";
 import path from "path";
 import { router } from "./routes/index";
-import { authGuard } from "./middleware/auth";
+// import { authGuard } from "./middleware/auth";
 
 dotenv.config();
 
@@ -24,7 +24,7 @@ app.use(expressLayouts);
 app.set("layout", "layouts/main");
 
 // Routes
-app.use(authGuard);
+// app.use(authGuard);
 app.use("/", router);
 
 export default app;
