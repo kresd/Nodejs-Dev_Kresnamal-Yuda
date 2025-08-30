@@ -52,7 +52,8 @@ export default {
   }),
   logout: Handler(async (req, res) => {
     res.clearCookie("token");
+    req.user = null;
     res.locals.user = null;
-    res.redirect("/login");
+    return res.redirect("/login");
   }),
 };
