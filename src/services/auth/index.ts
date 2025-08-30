@@ -79,9 +79,4 @@ const changePassword = async ({
   return { message: "Password updated successfully" };
 };
 
-const logout = async () => {
-  await supabase.auth.signOut();
-  return true;
-};
-
-export default { login, changePassword, logout };
+export default { login, changePassword };
