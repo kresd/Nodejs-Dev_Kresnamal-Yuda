@@ -54,6 +54,6 @@ export default {
     res.clearCookie("token");
     req.user = null;
     res.locals.user = null;
-    return res.redirect("/login");
+    return res.redirect(303, "/login");
   }),
 };

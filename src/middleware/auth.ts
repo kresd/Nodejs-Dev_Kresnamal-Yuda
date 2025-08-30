@@ -30,7 +30,7 @@ export const authGuard = (req, res, next) => {
     return res.redirect("/login");
   }
 
-  if (publicPaths.some((p) => req.path.startsWith(p))) {
+  if (req.method === "GET" && publicPaths.includes(req.path)) {
     return next();
   }
 
