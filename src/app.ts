@@ -26,7 +26,5 @@ app.set("layout", "layouts/main");
 // Routes
 app.use(authGuard);
 app.use("/", router);
-// app.get("/", (req, res) => res.send("Hello from Express + Vercel!"));
-app.get("/ping", (req, res) => res.send("pong"));
 
 export default app;

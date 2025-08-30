@@ -10,7 +10,7 @@ export default {
     const { source, target, matchMode } = req.body;
 
     if (!source || !target || !matchMode) {
-      return res.render("feature/form", {
+      return res.render("feature/compare/form", {
         title: "Compare Inputs",
         error: "Semua field wajib diisi",
       });
