@@ -15,7 +15,7 @@ export const requiredAuth = (req, res, next) => {
 };
 
 export const authGuard = (req, res, next) => {
-  const publicPaths = ["/login", "/logout"];
+  const publicPaths = ["/login"];
 
   if (req.path === "/") {
     const token = req.cookies?.token;
@@ -30,7 +30,7 @@ export const authGuard = (req, res, next) => {
     return res.redirect("/login");
   }
 
-  if (publicPaths.includes(req.path)) {
+  if (publicPaths.some((p) => req.path.startsWith(p))) {
     return next();
   }
 

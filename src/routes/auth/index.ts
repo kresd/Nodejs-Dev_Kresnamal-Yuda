@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/login", Controller.showLogin);
 router.post("/login", Controller.login);
-router.post("/logout", Controller.logout);
+router.post("/logout", requiredAuth, Controller.logout);
 router.get("/change-password", requiredAuth, Controller.showChangePassword);
 router.post("/change-password", requiredAuth, Controller.changePassword);
 
