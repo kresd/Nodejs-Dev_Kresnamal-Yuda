@@ -3,12 +3,10 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import expressLayouts from "express-ejs-layouts";
 import path from "path";
-// import { router } from "./routes/index";
-// import { authGuard } from "./middleware/auth";
+import { router } from "./routes/index";
+// import { authGuard } from "./middleware/auth"; // sementara dimatiin dulu
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config({ quiet: true });
-}
+dotenv.config();
 
 const app = express();
 
@@ -24,11 +22,13 @@ app.set("views", path.join(process.cwd(), "views"));
 app.use(expressLayouts);
 app.set("layout", "layouts/main");
 
+// ✅ tes route langsung
 app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
+// Routes asli
 // app.use(authGuard);
-// app.use("/", router);
+app.use("/", router);
 
 export default app;
