@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import expressLayouts from "express-ejs-layouts";
 import { router } from "@routes/index";
 import { authGuard } from "@middleware/auth";
+import path from "path";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.set("view engine", "ejs");
 app.set("views", "./src/views");
