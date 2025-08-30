@@ -15,7 +15,7 @@ export const requiredAuth = (req, res, next) => {
 };
 
 export const authGuard = (req, res, next) => {
-  const publicPaths = ["/login"];
+  const publicPaths = ["/login", "/logout"];
 
   if (req.path === "/") {
     const token = req.cookies?.token;
