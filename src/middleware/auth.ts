@@ -2,23 +2,33 @@ import jwt from "jsonwebtoken";
 
 export const requiredAuth = (req, res, next) => {
   const token = req.cookies?.token;
-  if (!token) {
-    return res.redirect("/login");
-  }
+  if (!token) return res.redirect("/login");
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!);
     req.user = decoded;
     res.locals.user = decoded;
     return next();
-  } catch (err) {
+  } catch {
     return res.redirect("/login");
   }
 };
 
-
 export const authGuard = (req, res, next) => {
-  const publicPaths = ["/login", "/"];
+  const publicPaths = ["/login"];
+
+  if (req.path === "/") {
+    const token = req.cookies?.token;
+    if (token) {
+      try {
+        jwt.verify(token, process.env.JWT_SECRET!);
+        return res.redirect("/features/compare");
+      } catch {
+        return res.redirect("/login");
+      }
+    }
+    return res.redirect("/login");
+  }
 
   if (publicPaths.includes(req.path)) {
     return next();
