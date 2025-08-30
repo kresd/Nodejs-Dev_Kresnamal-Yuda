@@ -1,16 +1,12 @@
 {
   "name": "nodejs-dev_kresnamal-yuda",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/app.ts",
-    "start": "node dist/app.js",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@supabase/supabase-js": "^2.56.0",
     "bcrypt": "^6.0.0",
