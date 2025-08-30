@@ -14,16 +14,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Public folder
 app.use(express.static(path.join(process.cwd(), "public")));
 
-// Views
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "views"));
 app.use(expressLayouts);
 app.set("layout", "layouts/main");
 
-// Routes
 app.use(authGuard);
 app.use("/", router);
 
