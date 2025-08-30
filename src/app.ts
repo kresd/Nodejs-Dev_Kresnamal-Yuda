@@ -6,7 +6,10 @@ import path from "path";
 import { router } from "./routes/index";
 // import { authGuard } from "./middleware/auth";
 
-dotenv.config();
+if (process.env.NODE_ENV !== "production") {
+  // hanya load dotenv di lokal
+  require("dotenv").config();
+}
 
 const app = express();
 
