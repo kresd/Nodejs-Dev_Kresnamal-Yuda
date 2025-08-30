@@ -1,18 +1,32 @@
 import express from "express";
-import bodyParser from "body-parser";
-import path from "path";
-import sequelize from "./config/database";
-import routes from "./routes";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import expressLayouts from "express-ejs-layouts";
+import { router } from "@routes/index";
+import { authGuard } from "@middleware/auth";
+
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(cookieParser());
+
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", "./src/views");
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/", routes);
+app.use(expressLayouts);
+app.set("layout", "layouts/main"); 
 
-sequelize.sync().then(() => {
-  app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+app.use(authGuard);
+app.use("/", router);
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });

@@ -1,0 +1,24 @@
+<div class="form-card">
+    <h2>Comparison Result</h2>
+
+    <div class="result">
+        <p><strong>Source:</strong>
+            <%= response.source %>
+        </p>
+        <p><strong>Target:</strong>
+            <%= response.target %>
+        </p>
+        <p><strong>Mode:</strong>
+            <%= response.matchMode %>
+        </p>
+        <p><strong>Percentage:</strong>
+            <%= response.percentage.toFixed(2) %> %
+        </p>
+    </div>
+
+    <div class="form-actions">
+        <form action="/features/compare" method="get">
+            <button type="submit">Try Again</button>
+        </form>
+    </div>
+</div>

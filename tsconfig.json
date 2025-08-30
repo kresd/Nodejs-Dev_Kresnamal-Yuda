@@ -1,10 +1,33 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
+    "sourceMap": true,
+    "inlineSources": true,
+    "incremental": true,
+    "target": "ESNext",
+    "module": "CommonJS",
+    "sourceRoot": "s",
+    "baseUrl": "./",
     "rootDir": "src",
     "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@controllers/*": ["./src/controllers/*"],
+      "@services/*": ["./src/services/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@models/*": ["./src/models/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@middleware/*": ["./src/middleware/*"],
+      "@config/*": ["./src/config/*"],
+    },
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
