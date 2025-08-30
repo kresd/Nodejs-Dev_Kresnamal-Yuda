@@ -39,7 +39,7 @@ export default {
     try {
       const id = req.params.id;
       await Service.deleteComparisonHistory(id);
-      res.redirect("/features/compare/history");
+      return res.redirect("/features/compare/history");
     } catch (err) {
       res.render("feature/compare/history", {
         error: err.message,
