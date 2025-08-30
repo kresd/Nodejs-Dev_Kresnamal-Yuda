@@ -1,5 +1,5 @@
-import Service from "@services/auth";
-import Handler from "@modules/handler";
+import Service from "../../services/auth";
+import Handler from "../../modules/handler";
 
 export default {
   showLogin: Handler(async (req, res) => {

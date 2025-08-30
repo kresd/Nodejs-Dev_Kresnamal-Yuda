@@ -1,5 +1,5 @@
-import Service from "@services/feature";
-import Handler from "@modules/handler";
+import Service from "../../services/feature";
+import Handler from "../../modules/handler";
 import dayjs from "dayjs";
 
 export default {

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { supabase } from "@config/supabase";
+import { supabase } from "../../config/supabase";
 
 const login = async ({
   email,
