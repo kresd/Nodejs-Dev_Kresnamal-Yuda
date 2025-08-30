@@ -30,7 +30,7 @@ app.set("views", path.join(process.cwd(), "views"));
 app.use(expressLayouts);
 app.set("layout", "layouts/main");
 
-app.use(authGuard);
+// app.use(authGuard);
 app.use("/", router);
 
 export default app;
