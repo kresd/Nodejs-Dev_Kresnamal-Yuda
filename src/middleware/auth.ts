@@ -18,11 +18,16 @@ export const requiredAuth = (req, res, next) => {
 };
 
 export const authGuard = (req, res, next) => {
-  const publicPaths = ["/login"];
+  console.log("🔍 Path:", req.path);
+
+  const publicPaths = ["/login", "/"];
 
   if (publicPaths.includes(req.path)) {
+    console.log("Public path, skip auth");
     return next();
   }
 
+  console.log("Protected, running requiredAuth");
   return requiredAuth(req, res, next);
 };
+
