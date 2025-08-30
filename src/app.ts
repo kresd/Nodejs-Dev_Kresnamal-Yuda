@@ -22,6 +22,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.set("view engine", "ejs");
 app.set("views", "./src/views");
+app.set('views', path.join(__dirname, '../views'));
+
 
 app.use(expressLayouts);
 app.set("layout", "layouts/main"); 
@@ -29,6 +31,4 @@ app.set("layout", "layouts/main");
 app.use(authGuard);
 app.use("/", router);
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+export default app;
