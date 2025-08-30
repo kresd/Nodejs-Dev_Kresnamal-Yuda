@@ -29,6 +29,8 @@ app.use(expressLayouts);
 app.set("layout", "layouts/main"); 
 
 app.use(authGuard);
-app.use("/", router);
+// app.use("/", router);
+app.get("/", (req, res) => res.send("Hello from Express on Vercel!"));
+
 
 export default app;
