@@ -4,11 +4,10 @@ import cookieParser from "cookie-parser";
 import expressLayouts from "express-ejs-layouts";
 import path from "path";
 import { router } from "./routes/index";
-// import { authGuard } from "./middleware/auth";
+import { authGuard } from "./middleware/auth";
 
 if (process.env.NODE_ENV !== "production") {
-  // hanya load dotenv di lokal
-  require("dotenv").config();
+  require("dotenv").config({ quiet: true });
 }
 
 const app = express();
@@ -26,8 +25,7 @@ app.set("views", path.join(process.cwd(), "views"));
 app.use(expressLayouts);
 app.set("layout", "layouts/main");
 
-// Routes
-// app.use(authGuard);
+app.use(authGuard);
 app.use("/", router);
 
 export default app;
